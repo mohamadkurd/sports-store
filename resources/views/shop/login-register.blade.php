@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="assets/css/output.css">
+  <link rel="stylesheet" href="assets/css/font.css">
+  <link rel="stylesheet" href="assets/css/app.css">
+
+  <title>ورود</title>
+</head>
+<body class="bg-[#fcfcfc]">
+  <div class="h-screen flex justify-center items-center">
+    <div class="bg-white rounded-2xl shadow-box-sm w-11/12 sm:w-7/12 md:w-6/12 lg:w-4/12 xl:w-3/12 h-auto py-5 px-4">
+      <img class="w-48 mx-auto" src="assets/image/logo.png" alt="">
+      <div class="mt-5 text-lg text-zinc-700">
+        ورود | ثبت نام
+      </div>
+
+     <form action="/register" method="post" enctype="multipart/form-data">
+    @csrf 
+      <div class="mt-8 mb-4 text-xs text-zinc-500">
+        نام
+      </div>
+      <div class="flex flex-col gap-y-1">
+        <input type="text" id="name" name="name" class="focus:shadow-primary-outline text-sm leading-5.6 block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-3 font-normal text-gray-700 outline-none transition-all focus:border-red-300 focus:outline-none">
+      </div>
+      @error('name')
+          <span class="text-red-600 font-bold">{{$errors->first()}}</span>
+      @enderror
+      
+      <div class="mt-8 mb-4 text-xs text-zinc-500">
+        ایمیل
+      </div>
+      <div class="flex flex-col gap-y-1">
+        <input type="email" id="email" name="email" class="focus:shadow-primary-outline text-sm leading-5.6 block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-3 font-normal text-gray-700 outline-none transition-all focus:border-red-300 focus:outline-none">
+      </div>
+        @error('email')
+          <span class="text-red-600 font-bold">{{$errors->first()}}</span>
+        @enderror
+
+      <div class="mt-8 mb-4 text-xs text-zinc-500">
+        بسورد
+      </div>
+      <div class="flex flex-col gap-y-1">
+        <input type="password" id="password" name="password" class="focus:shadow-primary-outline text-sm leading-5.6 block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-3 font-normal text-gray-700 outline-none transition-all focus:border-red-300 focus:outline-none">
+      </div>
+       @error('password')
+          <span class="text-red-600 font-bold">{{$errors->first()}}</span>
+          @enderror
+             <div class="mt-8 mb-4 text-xs text-zinc-500">
+        بسورد
+      </div>
+      <div class="flex flex-col gap-y-1">
+        <input type="password" id="password_confirmation" name="password_confirmation" class="focus:shadow-primary-outline text-sm leading-5.6 block w-full appearance-none rounded-lg border border-solid border-gray-300 bg-white bg-clip-padding px-3 py-3 font-normal text-gray-700 outline-none transition-all focus:border-red-300 focus:outline-none">
+      </div>
+       @error('password_confirmation')
+          <span class="text-red-600 font-bold">{{$errors->first()}}</span>
+        @enderror
+
+
+      <button class="mx-auto w-full px-2 py-3 mt-8 text-sm bg-red-500 hover:bg-red-400 transition text-gray-100 rounded-lg">
+        ورود
+      </button>
+</form>
+               @if($errors->any())
+             <h4>{{$errors->first()}}</h4>
+               @endif      
+      <div class="mt-8 mb-4 text-xs text-zinc-500">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
